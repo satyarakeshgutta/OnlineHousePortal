@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 align="center">Geo Location<a href="#/users" class="pull-right btn btn-link">Back</a></h2>
+
+    <div ng-controller="ListingDetailController">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Rent</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="listing in readingDetailVm.listings">
+            <td>{{listing.latitude}}</td>
+            <td>{{listing.longitude}}</td>
+            <td>{{listing.rent}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>

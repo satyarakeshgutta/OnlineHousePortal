@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Listings</h2>
+  <div>
+    <input type="search" ng-model="listingsVm.searchText" placeholder="Search here..." class="form-control">
+
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th ng-click="listingsVm.changeSort('rent')">Rent</th>
+      <th ng-click="listingsVm.changeSort('recreation')">Recreation</th>
+      <th ng-click="listingsVm.changeSort('publicTransport')">Public Transport</th>
+      <th ng-click="listingsVm.changeSort('latitude')"> Latitude</th>
+      <th ng-click="listingsVm.changeSort('longitude')">Longitude</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="listing in listingsVm.listings | filter:listingsVm.rent|
+                        orderBy:listingsVm.sorter.by:listingsVm.sorter.reverse">
+      <td><a ng-href="#/listings"></a></td>
+      <td>{{listing.rent}}</td>
+      <td>{{listing.recreation}}</td>
+      <td>{{listing.publicTransport}}</td>
+      <td>{{listing.latitude}}</td>
+      <td>{{listing.longitude}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 align="center">User Detail <a href="#/users" class="pull-right btn btn-link">Back</a></h2>
+
+
+
+<div ng-controller="UserDetailController">
+    <div class="container">
+       <table class="table table-striped" >
+            <th  align="center" bgcolor="#6495ed">fName</th>
+            <td align="center" bgcolor="#dc143c">{{userDetailVm.user.fName}}</td>
+       </table>
+
+        <table class="table table-striped" >
+            <th align="center" bgcolor="#d2691e">Click Image for Location Details</th>
+            <td align="center" bgcolor="#dcdcdc"><a ng-href="#!/listings/{{userDetailVm.user.fName}}">
+                <img src='http://www.sidtelfers.co.uk/IMAGES/57.png'
+                     class="img-fluid" alt="Responsive image"></a></td>
+        </table>
+
+        <table class="table table-striped" >
+            <th align="center" bgcolor="#d2691e">Click Image for Alert Details</th>
+            <td align="center" bgcolor="yellow"><a ng-href="#!/alerts/{{userDetailVm.user.fName}}+{{userDetailVm.user.lName}}">
+                <img src='http://s3.amazonaws.com/vnn-aws-sites/7581/files/2015/08/80e965f7f5413c7d-AlertButton.jpg'
+                     class="img-fluid" alt="Responsive image"></a></td>
+        </table>
+
+    </div>
+</div>
+
+<!--Readings View-->
+
+
+</div>

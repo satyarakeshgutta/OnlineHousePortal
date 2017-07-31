@@ -1,0 +1,101 @@
+<div class="container">
+  <h2>User List</h2>
+  <div>
+    <input type="search" ng-model="usersVm.searchText" placeholder="Search here..." class="form-control">
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th ng-click="usersVm.changeSort('fName')">FirstName</th>
+      <th ng-click="usersVm.changeSort('lName')">LastName</th>
+      <th ng-click="usersVm.changeSort('phoneNo')">PhoneNo</th>
+      <th ng-click="usersVm.changeSort('address')">City</th>
+      <th ng-click="usersVm.changeSort('preferredRadius')">Radius</th>
+      <th ng-click="usersVm.changeSort('publicTransport')">PublicTransport</th>
+      <th ng-click="usersVm.changeSort('recreation')">Recreation</th>
+      <th ng-click="usersVm.changeSort('maxRent')">Rent</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="user in usersVm.users | filter:usersVm.searchText |
+                        orderBy:usersVm.sorter.by:usersVm.sorter.reverse">
+      <td><a ng-href="#!/users/{{user.pId}}">
+        <img src="images/glasses.png" class="img-fluid" alt="Responsive image"></a></td>
+      <td>{{user.fName}}</td>
+      <td>{{user.lName}}</td>
+      <td>{{user.phoneNo}}</td>
+      <td>{{user.address}}</td>
+      <td>{{user.preferredRadius}}</td>
+      <td>{{user.publicTransport}}</td>
+      <td>{{user.recreation}}</td>
+      <td>{{user.maxRent}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div>
+    <div class="form-group">
+      <label for="fName">FirstName</label>
+      <input type="text"
+             required
+             class="form-control"
+             name="fName"
+             id="fName"
+             placeholder="FirstName">
+      <div class="errors"
+           ng-messages="userForm.fName.$error"
+           ng-if="userForm.fName.$dirty">
+        <p ng-message="required">First Name is required</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lName">LastName</label>
+      <input type="text"
+             required
+             class="form-control"
+             name="lName"
+             id="lName"
+             placeholder="LastName">
+      <div class="errors"
+           ng-messages="userForm.lName.$error"
+           ng-if="userForm.lName.$dirty">
+        <p ng-message="required">Last Name is required</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNo">PhoneNo</label>
+      <input type="text"
+             required
+             class="form-control"
+             name="phoneNo"
+             id="phoneNo"
+             placeholder="PhoneNo">
+      <div class="errors"
+           ng-messages="userForm.phoneNo.$error"
+           ng-if="userForm.phoneNo.$dirty">
+        <p ng-message="required">Mobile No is required</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">City</label>
+      <input type="text"
+             required
+             class="form-control"
+             name="address"
+             id="address"
+             placeholder="Address">
+      <div class="errors"
+           ng-messages="userForm.address.$error"
+           ng-if="userForm.address.$dirty">
+        <p ng-message="required">City is required</p>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>

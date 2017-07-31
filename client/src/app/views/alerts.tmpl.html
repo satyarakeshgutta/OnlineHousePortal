@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Alerts</h2>
+    <div>
+        <input type="search" ng-model="alertsVm.searchText" placeholder="Search here..." class="form-control">
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th ng-click="alertsVm.changeSort('personId')">Pid</th>
+            <th ng-click="alertsVm.changeSort('alertTime')">AlertTime</th>
+            <th ng-click="alertsVm.changeSort('priceAlert')">Price ALert</th>
+            <th ng-click="alertsVm.changeSort('radiusAlert')">Radius Alert</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="alert in alertsVm.alerts | filter:alertsVm.searchText|
+                        orderBy:alertsVm.sorter.by:alertsVm.sorter.reverse">
+            <td><a ng-href="#/alerts"></a></td>
+            <td>{{alert.personId}}</td>
+            <td>{{alert.alertTime}}</td>
+            <td>{{alert.priceAlert}}</td>
+            <td>{{alert.radiusAlert}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
